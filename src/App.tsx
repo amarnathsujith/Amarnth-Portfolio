@@ -10,7 +10,7 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 
 export default function App() {
-  const [selectedService, setSelectedService] = useState<string>('UI/UX Design');
+  const [selectedService, setSelectedService] = useState<string>('Data Science & Machine Learning');
 
   const scrollToContact = (serviceTitle?: string) => {
     if (serviceTitle) {

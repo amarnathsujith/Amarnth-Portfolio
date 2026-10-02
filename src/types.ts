@@ -14,7 +14,7 @@ export interface ProjectItem {
   id: string;
   title: string;
   client: string;
-  category: 'All' | 'Mobile Apps' | 'Web Design' | 'Fintech / SaaS' | 'E-commerce';
+  category: string;
   image: string;
   description: string;
   year: string;
@@ -55,3 +55,20 @@ export interface StatItem {
   value: string;
   subtext: string;
 }
+
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  period: string;
+  score: string;
+  details?: string;
+}
+
+export interface ExperienceItem {
+  role: string;
+  organization: string;
+  period: string;
+  description: string[];
+  type: 'Internship' | 'Leadership';
+}
+

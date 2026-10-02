@@ -5,12 +5,13 @@ import {
   ArrowRight, 
   Briefcase, 
   Linkedin, 
-  Dribbble, 
+  Github,
   Instagram, 
-  Twitter,
+  Mail,
   MapPin,
   CheckCircle2,
-  Sparkles
+  Sparkles,
+  GraduationCap
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
@@ -57,14 +58,14 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
               className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#1A1A1A] tracking-tight leading-[1.08] mb-4"
             >
               I'm <span className="text-[#FFB800] relative inline-block underline decoration-[#FFB800]/40 decoration-wavy decoration-2 underline-offset-8">
-                Amarnath Sujith
+                {PERSONAL_INFO.name}
               </span>
             </h1>
 
             {/* Subtitle with Location Pin */}
             <div className="flex items-center gap-2 text-lg sm:text-xl font-medium text-[#525252] mb-6">
               <MapPin className="w-5 h-5 text-[#FFB800] shrink-0" />
-              <span>{PERSONAL_INFO.title} based in <strong className="text-[#1A1A1A] font-semibold">USA</strong></span>
+              <span>{PERSONAL_INFO.title} based in <strong className="text-[#1A1A1A] font-semibold">{PERSONAL_INFO.location}</strong></span>
             </div>
 
             {/* Professional Summary */}
@@ -72,33 +73,13 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
               {PERSONAL_INFO.bio}
             </p>
 
-            {/* Social Proof Badge: 4.9/5 - 350+ Reviews */}
+            {/* Social Proof Badge: CGPA & Education */}
             <div 
               id="hero-social-proof-badge"
               className="flex flex-wrap items-center gap-3 p-3.5 bg-white/80 border border-[#EBE6DC] rounded-2xl shadow-xs mb-8"
             >
-              {/* Client Avatars Stack */}
-              <div className="flex -space-x-2.5 overflow-hidden">
-                <img
-                  className="inline-block h-9 w-9 rounded-full ring-2 ring-[#FBF9F5] object-cover"
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80"
-                  alt="Client Reviewer 1"
-                />
-                <img
-                  className="inline-block h-9 w-9 rounded-full ring-2 ring-[#FBF9F5] object-cover"
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
-                  alt="Client Reviewer 2"
-                />
-                <img
-                  className="inline-block h-9 w-9 rounded-full ring-2 ring-[#FBF9F5] object-cover"
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80"
-                  alt="Client Reviewer 3"
-                />
-                <img
-                  className="inline-block h-9 w-9 rounded-full ring-2 ring-[#FBF9F5] object-cover"
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80"
-                  alt="Client Reviewer 4"
-                />
+              <div className="w-10 h-10 rounded-xl bg-[#FFB800]/20 text-[#B27B00] flex items-center justify-center font-bold">
+                <GraduationCap className="w-5 h-5" />
               </div>
 
               {/* Rating & Review Info */}
@@ -117,14 +98,14 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
               </div>
             </div>
 
-            {/* Action Buttons: Portfolio & Hire Me */}
+            {/* Action Buttons: Portfolio & Contact */}
             <div className="flex flex-wrap items-center gap-4 mb-8">
               <button
                 id="hero-portfolio-btn"
                 onClick={onExplorePortfolio}
                 className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#1A1A1A] text-white hover:bg-[#2A2A2A] text-sm font-bold tracking-wide shadow-md transition-all duration-300 hover:shadow-lg hover:ring-2 hover:ring-[#FFB800]/50 active:scale-95 group"
               >
-                <span>Portfolio</span>
+                <span>View Projects</span>
                 <ArrowRight className="w-4 h-4 text-[#FFB800] transition-transform duration-300 group-hover:translate-x-1" />
               </button>
 
@@ -134,14 +115,14 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#FFB800] text-[#1A1A1A] hover:bg-[#E5A93B] text-sm font-bold tracking-wide shadow-md transition-all duration-300 hover:shadow-lg hover:ring-2 hover:ring-[#1A1A1A]/20 active:scale-95 group"
               >
                 <Briefcase className="w-4 h-4" />
-                <span>Hire Me</span>
+                <span>Contact Me</span>
               </button>
             </div>
 
             {/* Social Media Links */}
             <div className="flex items-center gap-3 pt-2">
               <span className="text-xs font-semibold uppercase tracking-wider text-[#737373] mr-1">
-                Follow:
+                Connect:
               </span>
               <a
                 href={PERSONAL_INFO.socials.linkedin}
@@ -154,14 +135,22 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
-                href={PERSONAL_INFO.socials.dribbble}
+                href={PERSONAL_INFO.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                id="hero-social-dribbble"
-                aria-label="Amarnath Sujith on Dribbble"
-                className="w-10 h-10 rounded-full bg-white border border-[#E5E0D6] flex items-center justify-center text-[#525252] hover:text-[#EA4C89] hover:border-[#EA4C89] hover:bg-[#EA4C89]/10 transition-all duration-200 shadow-2xs hover:scale-105"
+                id="hero-social-github"
+                aria-label="Amarnath Sujith on GitHub"
+                className="w-10 h-10 rounded-full bg-white border border-[#E5E0D6] flex items-center justify-center text-[#525252] hover:text-[#1A1A1A] hover:border-[#FFB800] hover:bg-[#FFB800]/10 transition-all duration-200 shadow-2xs hover:scale-105"
               >
-                <Dribbble className="w-4 h-4" />
+                <Github className="w-4 h-4" />
+              </a>
+              <a
+                href={`mailto:${PERSONAL_INFO.email}`}
+                id="hero-social-email"
+                aria-label="Email Amarnath Sujith"
+                className="w-10 h-10 rounded-full bg-white border border-[#E5E0D6] flex items-center justify-center text-[#525252] hover:text-[#FFB800] hover:border-[#FFB800] hover:bg-[#FFB800]/10 transition-all duration-200 shadow-2xs hover:scale-105"
+              >
+                <Mail className="w-4 h-4" />
               </a>
               <a
                 href={PERSONAL_INFO.socials.instagram}
@@ -172,16 +161,6 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
                 className="w-10 h-10 rounded-full bg-white border border-[#E5E0D6] flex items-center justify-center text-[#525252] hover:text-[#E4405F] hover:border-[#E4405F] hover:bg-[#E4405F]/10 transition-all duration-200 shadow-2xs hover:scale-105"
               >
                 <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href={PERSONAL_INFO.socials.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                id="hero-social-twitter"
-                aria-label="Amarnath Sujith on Twitter/X"
-                className="w-10 h-10 rounded-full bg-white border border-[#E5E0D6] flex items-center justify-center text-[#525252] hover:text-[#1DA1F2] hover:border-[#1DA1F2] hover:bg-[#1DA1F2]/10 transition-all duration-200 shadow-2xs hover:scale-105"
-              >
-                <Twitter className="w-4 h-4" />
               </a>
             </div>
 
@@ -210,7 +189,7 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
                   {/* Portrait photo */}
                   <img
                     src="/assets/profile.jpg"
-                    alt="Amarnath Sujith - Product Designer"
+                    alt="Amarnath Sujith - AI Data Analyst & Developer"
                     className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700 filter contrast-105"
                   />
 
@@ -222,7 +201,7 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-wider text-[#FFB800]">
-                          Design Director
+                          AI Data Analyst & Dev
                         </p>
                         <h3 className="text-lg font-bold font-display text-white">
                           Amarnath Sujith
@@ -230,27 +209,27 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
                       </div>
                       <div className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[11px] font-semibold flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        Available Now
+                        Available for Roles
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Floating Metric Badge 1: 10+ Years Experience */}
+                {/* Floating Metric Badge 1: 7.4 CGPA */}
                 <div 
                   id="hero-badge-experience"
                   className="absolute -top-3 -left-3 sm:-left-5 bg-[#1A1A1A] text-white p-3 rounded-2xl shadow-xl border border-[#333] flex items-center gap-3 animate-in fade-in duration-500"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-[#FFB800] text-[#1A1A1A] flex items-center justify-center font-display font-extrabold text-base">
-                    10+
+                  <div className="w-10 h-10 rounded-xl bg-[#FFB800] text-[#1A1A1A] flex items-center justify-center font-display font-extrabold text-sm">
+                    7.4
                   </div>
                   <div className="pr-1">
-                    <p className="text-xs font-bold text-white leading-tight">Years Craft</p>
-                    <p className="text-[10px] text-[#A3A3A3]">Product & UX</p>
+                    <p className="text-xs font-bold text-white leading-tight">CGPA</p>
+                    <p className="text-[10px] text-[#A3A3A3]">B.Tech CSE @ UCEK</p>
                   </div>
                 </div>
 
-                {/* Floating Metric Badge 2: 140+ Projects Shipped */}
+                {/* Floating Metric Badge 2: 4+ ML Projects */}
                 <div 
                   id="hero-badge-projects"
                   className="absolute -bottom-3 -right-3 sm:-right-4 bg-white text-[#1A1A1A] p-3 rounded-2xl shadow-xl border border-[#E5E0D6] flex items-center gap-3"
@@ -259,10 +238,10 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-sm font-extrabold font-display leading-tight text-[#1A1A1A]">140+ Works</p>
+                    <p className="text-sm font-extrabold font-display leading-tight text-[#1A1A1A]">4+ AI & ML Works</p>
                     <p className="text-[10px] text-[#737373] font-medium flex items-center gap-1">
                       <CheckCircle2 className="w-3 h-3 text-emerald-500 inline" />
-                      Shipped to Market
+                      Built & Deployed
                     </p>
                   </div>
                 </div>
@@ -276,3 +255,4 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
     </section>
   );
 };
+

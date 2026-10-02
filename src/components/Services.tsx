@@ -72,7 +72,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
             </h2>
           </div>
           <p className="text-sm sm:text-base text-[#A3A3A3] max-w-md leading-relaxed">
-            A comprehensive, battle-tested design workflow spanning rapid conceptual wireframing, high-impact aesthetic systems, and scalable design token architectures.
+            A comprehensive technical toolkit spanning Machine Learning algorithms, Data Visualization dashboards, Full-Stack Web architectures, and AI Automation pipelines.
           </p>
         </div>
 

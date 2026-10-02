@@ -12,7 +12,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onContact }) => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
-  const categories = ['All', 'Mobile Apps', 'Web Design', 'Fintech / SaaS', 'E-commerce'];
+  const categories = ['All', 'Web & AI', 'Data Science & ML', 'Predictive Analytics', 'Full Stack'];
 
   const filteredProjects = activeCategory === 'All'
     ? PROJECTS
@@ -27,14 +27,14 @@ export const Projects: React.FC<ProjectsProps> = ({ onContact }) => {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFECE6] border border-[#E2DDD2] text-[#B27B00] text-xs font-semibold uppercase tracking-wider mb-4">
               <Sparkles className="w-3.5 h-3.5 text-[#FFB800]" />
-              <span>Selected Portfolio</span>
+              <span>Selected Projects</span>
             </div>
             <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] tracking-tight leading-tight">
-              Featured <span className="text-[#FFB800]">Case Studies</span>
+              Featured <span className="text-[#FFB800]">Technical Projects</span>
             </h2>
           </div>
           <p className="text-sm sm:text-base text-[#525252] max-w-md leading-relaxed">
-            Real products shipped to real users. Each project represents a synthesis of rigorous behavioral research, business KPIs, and meticulous visual craft.
+            Real-world software platforms and data models. Each project represents a synthesis of analytical precision, machine learning algorithms, and functional web design.
           </p>
         </div>
 
