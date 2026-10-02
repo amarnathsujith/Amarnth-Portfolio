@@ -252,7 +252,7 @@ export const PROJECTS: ProjectItem[] = [
       "Flask microservice backend serving real-time cost prediction APIs",
       "Exploratory Data Analysis (EDA) uncovering key premium cost drivers"
     ],
-    liveUrl: "https://github.com/amarnathsujith"
+    liveUrl: "https://insureiq-app.onrender.com/"
   },
   {
     id: "safeschools",
