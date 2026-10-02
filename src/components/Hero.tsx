@@ -81,7 +81,7 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
               <div className="flex -space-x-2.5 overflow-hidden">
                 <img
                   className="inline-block h-9 w-9 rounded-full ring-2 ring-[#FBF9F5] object-cover"
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80"
                   alt="Client Reviewer 1"
                 />
                 <img
@@ -209,7 +209,7 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
                 <div className="relative rounded-2xl overflow-hidden aspect-4/5 bg-[#EAE5DC]">
                   {/* Portrait photo */}
                   <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
+                    src="/assets/profile.jpg"
                     alt="Amarnath Sujith - Product Designer"
                     className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700 filter contrast-105"
                   />
