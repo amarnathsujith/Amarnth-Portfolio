@@ -297,7 +297,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     clientName: "Sarah Jenkins",
     role: "VP of Product",
     company: "LuxeVault International",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
     quote: "Amarnath has an extraordinary ability to dissect chaotic business requirements and translate them into pure, intuitive visual poetry. Our luxury marketplace checkout conversion surged by 148% within 90 days of his redesign launch.",
     rating: 5,
     projectType: "E-Commerce & Design System"
