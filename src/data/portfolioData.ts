@@ -23,7 +23,7 @@ export const PERSONAL_INFO = {
 
 export const STATS: StatItem[] = [
   { value: "7.4", label: "CGPA in B.Tech CSE", subtext: "University College of Engineering, Kariavattom" },
-  { value: "4+", label: "Featured ML & AI Projects", subtext: "Impulse, Demand Forecasting, Insurance ML, SafeSchools" },
+  { value: "3+", label: "Featured ML & AI Projects", subtext: "Impulse, Insurance ML, SafeSchools" },
   { value: "4", label: "Leadership Roles", subtext: "Unstop Igniters, Legacy IEDC, MuLearn, IEEE" },
   { value: "Intern", label: "Software Developer", subtext: "DCube AI Solutions, Technopark (2026)" },
 ];
@@ -213,26 +213,6 @@ export const PROJECTS: ProjectItem[] = [
       "Supabase database integration with real-time student analytics"
     ],
     liveUrl: "https://impulse.uck.ac.in"
-  },
-  {
-    id: "abc-foods",
-    title: "ABC Foods — Demand Forecasting System",
-    client: "Supply Chain & Retail Analytics",
-    category: "Data Science & ML",
-    year: "2025",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-    description: "Built an ML-based demand forecasting system using historical food sales data for predictive inventory planning.",
-    impactMetric: "Achieved R² = 0.547 using LightGBM",
-    tags: ["Python", "LightGBM", "PostgreSQL", "React"],
-    challenge: "Food distribution enterprises faced stockout losses and overstock spoilage due to static historical inventory forecasting.",
-    solution: "Developed a Machine Learning pipeline using LightGBM gradient boosting to model sales seasonality, evaluating accuracy via R², MAE, and RMSE metrics.",
-    keyFeatures: [
-      "LightGBM regression model trained on multi-period sales telemetry",
-      "Rigorous evaluation using MAE, RMSE, and R² metrics (achieved R² = 0.547)",
-      "PostgreSQL database integration for real-time inventory ingestion",
-      "Interactive React dashboard for supply chain manager insights"
-    ],
-    liveUrl: "https://github.com/amarnathsujith"
   },
   {
     id: "insurance-cost",
