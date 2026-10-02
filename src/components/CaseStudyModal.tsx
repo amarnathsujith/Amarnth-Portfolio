@@ -33,14 +33,28 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
               • {project.year} Case Study
             </span>
           </div>
-          <button
-            id="modal-close-btn"
-            onClick={onClose}
-            aria-label="Close case study details"
-            className="w-9 h-9 rounded-full bg-[#EFECE6] hover:bg-[#1A1A1A] hover:text-white transition-colors flex items-center justify-center text-[#525252]"
-          >
-            <X className="w-5 h-5" />
-          </button>
+
+          <div className="flex items-center gap-3">
+            {project.liveUrl && project.liveUrl !== '#' && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FFB800] text-[#1A1A1A] hover:bg-[#E5A93B] text-xs font-bold transition-all shadow-2xs"
+              >
+                <span>Visit Live Website</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
+            <button
+              id="modal-close-btn"
+              onClick={onClose}
+              aria-label="Close case study details"
+              className="w-9 h-9 rounded-full bg-[#EFECE6] hover:bg-[#1A1A1A] hover:text-white transition-colors flex items-center justify-center text-[#525252]"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         {/* Scrollable Content */}
@@ -63,9 +77,28 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
             <p className="text-xs font-semibold text-[#737373] uppercase tracking-wider mb-4">
               Client: {project.client}
             </p>
-            <p className="text-base text-[#525252] leading-relaxed">
+            <p className="text-base text-[#525252] leading-relaxed mb-4">
               {project.description}
             </p>
+
+            {/* Live Website Link Callout */}
+            {project.liveUrl && project.liveUrl !== '#' && (
+              <div className="p-4 rounded-2xl bg-[#FFB800]/10 border border-[#FFB800]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#1A1A1A]">
+                  <ExternalLink className="w-4 h-4 text-[#B27B00] shrink-0" />
+                  <span>Live URL: <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-[#B27B00] underline hover:text-[#1A1A1A] font-mono">{project.liveUrl}</a></span>
+                </div>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1A1A1A] text-white hover:bg-[#2A2A2A] text-xs font-bold transition-all shrink-0"
+                >
+                  <span>Open Website</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#FFB800]" />
+                </a>
+              </div>
+            )}
           </div>
 
           {/* Hero Banner Image */}
@@ -104,7 +137,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
           {/* Key Features & Craft Highlights */}
           <div className="p-6 rounded-2xl bg-[#EFECE6]/60 border border-[#E2DDD2]">
             <h3 className="font-display font-bold text-lg text-[#1A1A1A] mb-4">
-              Key Design Interventions & Deliverables
+              Key Features & Technical Deliverables
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {project.keyFeatures.map((feature, idx) => (
@@ -133,9 +166,20 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
         {/* Modal Footer CTA */}
         <div className="px-6 py-4 bg-white border-t border-[#EAE6DF] flex flex-wrap items-center justify-between gap-4">
           <div className="text-xs text-[#737373]">
-            Need a similar product design system or mobile interface?
+            Explore or discuss similar platform architectures.
           </div>
           <div className="flex items-center gap-3">
+            {project.liveUrl && project.liveUrl !== '#' && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1A1A1A] text-white hover:bg-[#2A2A2A] font-bold text-xs sm:text-sm transition-all shadow-xs"
+              >
+                <span>Visit {project.liveUrl.replace(/^https?:\/\//, '')}</span>
+                <ExternalLink className="w-4 h-4 text-[#FFB800]" />
+              </a>
+            )}
             <button
               onClick={() => {
                 onClose();
@@ -143,7 +187,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
               }}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FFB800] text-[#1A1A1A] hover:bg-[#E5A93B] font-bold text-xs sm:text-sm transition-all shadow-xs"
             >
-              <span>Build Something Similar</span>
+              <span>Contact Me</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
