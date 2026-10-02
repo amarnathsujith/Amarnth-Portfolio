@@ -212,7 +212,7 @@ export const PROJECTS: ProjectItem[] = [
       "Company-specific assessment modules and roadmap tracking",
       "Supabase database integration with real-time student analytics"
     ],
-    liveUrl: "https://github.com/amarnathsujith"
+    liveUrl: "https://impulse.uck.ac.in"
   },
   {
     id: "abc-foods",

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, ArrowUpRight, Filter, Eye } from 'lucide-react';
+import { Sparkles, ArrowUpRight, Filter, Eye, ExternalLink } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
 import { ProjectItem } from '../types';
 import { CaseStudyModal } from './CaseStudyModal';
@@ -92,11 +92,23 @@ export const Projects: React.FC<ProjectsProps> = ({ onContact }) => {
                 </div>
 
                 {/* Overlay hover prompt */}
-                <div className="absolute inset-0 bg-[#1A1A1A]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-[#1A1A1A]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#1A1A1A] text-xs font-bold shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                     <Eye className="w-3.5 h-3.5 text-[#FFB800]" />
-                    <span>Explore Case Study</span>
+                    <span>Explore Details</span>
                   </span>
+                  {project.liveUrl && project.liveUrl !== '#' && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#FFB800] text-[#1A1A1A] hover:bg-[#E5A93B] text-xs font-bold shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+                    >
+                      <span>Visit Site</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -122,7 +134,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onContact }) => {
                 </div>
 
                 {/* Tags and CTA link */}
-                <div className="pt-4 border-t border-[#F0ECE4] flex items-center justify-between">
+                <div className="pt-4 border-t border-[#F0ECE4] flex items-center justify-between gap-2">
                   <div className="flex flex-wrap gap-1.5">
                     {project.tags.slice(0, 3).map((tag, idx) => (
                       <span
@@ -134,9 +146,22 @@ export const Projects: React.FC<ProjectsProps> = ({ onContact }) => {
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-1 text-xs font-bold text-[#1A1A1A] group-hover:text-[#FFB800] transition-colors shrink-0">
-                    <span>View Case Study</span>
-                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <div className="flex items-center gap-2 shrink-0">
+                    {project.liveUrl && project.liveUrl !== '#' && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FFB800]/15 text-[#B27B00] hover:bg-[#FFB800] hover:text-[#1A1A1A] text-xs font-bold transition-all"
+                      >
+                        <span>Live Site</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
+                    <div className="flex items-center gap-1 text-xs font-bold text-[#1A1A1A] group-hover:text-[#FFB800] transition-colors">
+                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
                   </div>
                 </div>
               </div>
