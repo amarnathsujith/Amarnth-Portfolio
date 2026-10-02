@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Heart, Linkedin, Dribbble, Instagram, Twitter, Sparkles } from 'lucide-react';
+import { ArrowUp, Heart, Linkedin, Github, Instagram, Mail, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface FooterProps {
@@ -61,7 +61,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
             </div>
 
             <p className="text-sm text-[#A3A3A3] max-w-sm leading-relaxed">
-              {PERSONAL_INFO.title}. Crafting high-converting, empathetic interfaces for market-leading digital companies worldwide.
+              {PERSONAL_INFO.title}. Building intelligent data models, AI applications, and full-stack software solutions.
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -75,13 +75,20 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
-                href={PERSONAL_INFO.socials.dribbble}
+                href={PERSONAL_INFO.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Dribbble portfolio"
-                className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#EA4C89] hover:text-white text-white/80 border border-white/10 flex items-center justify-center transition-all"
+                aria-label="GitHub profile"
+                className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#FFB800] hover:text-[#1A1A1A] text-white/80 border border-white/10 flex items-center justify-center transition-all"
               >
-                <Dribbble className="w-4 h-4" />
+                <Github className="w-4 h-4" />
+              </a>
+              <a
+                href={`mailto:${PERSONAL_INFO.email}`}
+                aria-label="Email Amarnath Sujith"
+                className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#FFB800] hover:text-[#1A1A1A] text-white/80 border border-white/10 flex items-center justify-center transition-all"
+              >
+                <Mail className="w-4 h-4" />
               </a>
               <a
                 href={PERSONAL_INFO.socials.instagram}
@@ -91,15 +98,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
                 className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#E4405F] hover:text-white text-white/80 border border-white/10 flex items-center justify-center transition-all"
               >
                 <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href={PERSONAL_INFO.socials.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter profile"
-                className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#1DA1F2] hover:text-white text-white/80 border border-white/10 flex items-center justify-center transition-all"
-              >
-                <Twitter className="w-4 h-4" />
               </a>
             </div>
           </div>

@@ -19,20 +19,20 @@ interface ContactSectionProps {
 export const ContactSection: React.FC<ContactSectionProps> = ({ initialService = '' }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [service, setService] = useState(initialService || 'UI/UX Design');
-  const [budget, setBudget] = useState('$5k - $10k');
+  const [service, setService] = useState(initialService || 'Data Science & Machine Learning');
+  const [budget, setBudget] = useState('Full-Time Role');
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const budgetOptions = ['<$5,000', '$5k - $10k', '$10k - $25k', '$25k+'];
+  const budgetOptions = ['Full-Time Role', 'Internship', 'Project / Freelance', 'Advisory'];
   const serviceOptions = [
-    'UI/UX Design',
-    'Website Design',
-    'Mobile App Design',
-    'Wireframing & Prototyping',
-    'Design Systems',
-    'Product Advisory / Sprint'
+    'Data Science & Machine Learning',
+    'Full-Stack Web & AI Applications',
+    'Data Visualization & BI Dashboards',
+    'Generative AI & AI Agents',
+    'Technical Leadership & Mentorship',
+    'Other Opportunities'
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -227,7 +227,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                   {/* Budget Selector */}
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-[#1A1A1A] mb-2">
-                      Target Investment / Budget Range
+                      Engagement / Opportunity Type
                     </label>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                       {budgetOptions.map((opt) => (
