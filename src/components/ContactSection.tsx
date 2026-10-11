@@ -24,6 +24,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const budgetOptions = ['Full-Time Role', 'Internship', 'Project / Freelance', 'Advisory'];
   const serviceOptions = [
@@ -35,15 +36,53 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
     'Other Opportunities'
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage('');
 
-    // Simulate reliable submission
-    setTimeout(() => {
+    try {
+      // Direct Web3Forms submission - delivered straight to inbox without opening desktop mail app
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'cd99a615-9a0f-4fd5-a3e9-7ac98cedd6cc',
+          name: name,
+          email: email,
+          to_email: PERSONAL_INFO.email,
+          subject: `New Portfolio Message from ${name} (${service})`,
+          service: service,
+          engagement_type: budget,
+          message: message,
+          from_name: 'Amarnath Portfolio Contact Form',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+      } else {
+        // If access key is pending activation or errors, we provide fallback
+        console.error('Submission response:', result);
+        // If it failed because access_key is needed, tell user or fallback
+        if (result.message && result.message.includes('access_key')) {
+          setErrorMessage('Please provide a free Web3Forms access key in .env or portfolioData.');
+        } else {
+          setErrorMessage(result.message || 'Something went wrong. Please try again.');
+        }
+        setIsSubmitting(false);
+      }
+    } catch (err: any) {
+      console.error('Submission error:', err);
+      setErrorMessage('Network error occurred. Please check your connection.');
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 900);
+    }
   };
 
   return (
@@ -262,6 +301,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                       className="w-full px-4 py-3 rounded-xl bg-[#FBF9F5] border border-[#E5E0D6] focus:border-[#FFB800] focus:ring-2 focus:ring-[#FFB800]/30 text-sm text-[#1A1A1A] placeholder-[#A3A3A3] outline-hidden transition-all resize-y"
                     />
                   </div>
+
+                  {/* Error Message */}
+                  {errorMessage && (
+                    <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-center justify-between">
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
 
                   {/* Submit Button */}
                   <button
