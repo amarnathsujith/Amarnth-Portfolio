@@ -313,7 +313,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Engineering Supervisor",
     company: "DCube AI Solutions, Technopark",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
-    quote: "Amarnath demonstrated exceptional technical aptitude during his Software Development Internship. His contributions across full-stack development, debugging, and deployment were clean, structured, and highly reliable.",
+    quote: "Two months of learning, collaboration, and real-world exposure! We're glad to have Amarnath Sujith as part of the DCUBE Ai journey and proud to see the growth and insights gained throughout the internship. Wishing you continued success in everything ahead!",
     rating: 5,
     projectType: "Software Development Internship"
   },

@@ -1,108 +1,129 @@
 import React from 'react';
-import { Sparkles, Cpu, Compass, TrendingUp, CheckCircle, GraduationCap, Briefcase, Users } from 'lucide-react';
+import { GraduationCap, Briefcase, CheckCircle, Code } from 'lucide-react';
 import { PERSONAL_INFO, STATS, EDUCATION, EXPERIENCES, DESIGN_PHILOSOPHY, SKILL_TAGS } from '../data/portfolioData';
 
 interface AboutMeProps {
   onContact: () => void;
 }
 
+// Group skills by category
+const SKILL_GROUPS = [
+  { label: 'Languages', skills: ['Python', 'SQL', 'JavaScript', 'C', 'C++'] },
+  { label: 'ML / Data', skills: ['Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'Keras', 'XGBoost', 'LightGBM'] },
+  { label: 'Visualization', skills: ['Power BI', 'Tableau', 'Matplotlib', 'Excel'] },
+  { label: 'Web & Backend', skills: ['React.js', 'Next.js', 'Flask', 'Django', 'HTML/CSS'] },
+  { label: 'Databases', skills: ['PostgreSQL', 'MySQL', 'Supabase'] },
+  { label: 'AI & Tools', skills: ['Generative AI', 'Computer Vision', 'CNNs', 'AI Agents', 'AutoML', 'Git & GitHub', 'Google Colab'] },
+];
+
 export const AboutMe: React.FC<AboutMeProps> = () => {
   return (
-    <section id="about" className="py-20 md:py-28 bg-[#EFECE6]/50 border-y border-[#E5E0D6] relative">
+    <section id="about" className="py-20 md:py-28 bg-[#EFECE6]/50 border-y border-[#E5E0D6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#E2DDD2] text-[#B27B00] text-xs font-semibold uppercase tracking-wider mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#FFB800]" />
-            <span>About Amarnath Sujith</span>
+
+        {/* ── Split: Bio Left / Stats Right ──────────────────── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
+
+          {/* Left: Bio */}
+          <div className="lg:col-span-7">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#B27B00] mb-3">About Me</p>
+            <h2 className="font-display font-bold text-3xl sm:text-4xl text-[#1A1A1A] tracking-tight leading-tight mb-6">
+              Building with data and code —<br className="hidden sm:block" />
+              one problem at a time.
+            </h2>
+            <div className="space-y-4 text-base text-[#525252] leading-relaxed max-w-2xl">
+              <p>
+                I'm a third-year Computer Science student at{' '}
+                <span className="font-semibold text-[#1A1A1A]">University College of Engineering, Kariavattom (UCEK)</span>,
+                focused on applied machine learning, data analytics, and full-stack development.
+              </p>
+              <p>
+                On the technical side, I work across the data stack — from EDA and predictive modelling in Python to interactive dashboards in Power BI, and full-stack apps using React, Next.js, and Supabase.
+                I've built real products like{' '}
+                <span className="font-semibold text-[#1A1A1A]">Impulse</span> (AI placement prep platform),{' '}
+                <span className="font-semibold text-[#1A1A1A]">SafeSchools</span> (evacuation routing system),
+                and an insurance cost prediction ML model.
+              </p>
+              <p>
+                Beyond code, I lead communities: President of{' '}
+                <span className="font-semibold text-[#1A1A1A]">Unstop Igniters UCEK</span>, ex-CEO of{' '}
+                <span className="font-semibold text-[#1A1A1A]">Legacy IEDC</span>, ex-Campus Lead at{' '}
+                <span className="font-semibold text-[#1A1A1A]">MuLearn</span>, and ex-Technical Co-Lead at{' '}
+                <span className="font-semibold text-[#1A1A1A]">IEEE SBC UCEK</span>.
+              </p>
+            </div>
           </div>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] tracking-tight leading-tight mb-6">
-            Pioneering Intelligence through <span className="text-[#FFB800]">Data & Code</span>
-          </h2>
-          <p className="text-base sm:text-lg text-[#525252] leading-relaxed">
-            {PERSONAL_INFO.bio}
-          </p>
-        </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-16">
-          {STATS.map((stat, idx) => (
-            <div 
-              key={idx}
-              className="bg-white p-6 rounded-2xl border border-[#E5E0D6] shadow-2xs hover:shadow-md transition-shadow"
-            >
-              <div className="font-display font-extrabold text-3xl sm:text-4xl text-[#1A1A1A] mb-1">
-                <span className="text-[#FFB800]">{stat.value}</span>
+          {/* Right: Stats */}
+          <div className="lg:col-span-5 grid grid-cols-2 gap-4 content-start">
+            {STATS.map((stat, idx) => (
+              <div 
+                key={idx}
+                className="bg-white p-5 rounded-xl border border-[#E5E0D6] shadow-2xs"
+              >
+                <div className="font-display font-extrabold text-3xl text-[#FFB800] mb-1">
+                  {stat.value}
+                </div>
+                <p className="text-sm font-semibold text-[#1A1A1A] mb-0.5">{stat.label}</p>
+                <p className="text-[11px] text-[#737373] leading-snug">{stat.subtext}</p>
               </div>
-              <p className="text-xs sm:text-sm font-bold text-[#1A1A1A] mb-0.5">
-                {stat.label}
-              </p>
-              <p className="text-[11px] text-[#737373]">
-                {stat.subtext}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        {/* Education & Experience Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        {/* ── Education & Experience Timeline ────────────────── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+
           {/* Education */}
-          <div className="bg-white p-8 rounded-3xl border border-[#E5E0D6] shadow-xs">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-[#FFB800]/15 text-[#B27B00] flex items-center justify-center font-bold">
-                <GraduationCap className="w-5 h-5" />
+          <div className="bg-white p-8 rounded-2xl border border-[#E5E0D6]">
+            <div className="flex items-center gap-3 mb-7">
+              <div className="w-9 h-9 rounded-lg bg-[#FFB800]/15 flex items-center justify-center">
+                <GraduationCap className="w-4.5 h-4.5 text-[#B27B00]" />
               </div>
-              <div>
-                <h3 className="font-display font-bold text-xl text-[#1A1A1A]">Education</h3>
-                <p className="text-xs text-[#737373]">Academic background & qualifications</p>
-              </div>
+              <h3 className="font-display font-bold text-lg text-[#1A1A1A]">Education</h3>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-7">
               {EDUCATION.map((item, idx) => (
-                <div key={idx} className="relative pl-6 border-l-2 border-[#FFB800]/40 pb-2">
-                  <div className="absolute -left-[9px] top-0.5 w-4 h-4 rounded-full bg-[#FFB800] border-2 border-white" />
-                  <div className="flex items-center justify-between gap-2 mb-1">
-                    <h4 className="font-bold text-sm sm:text-base text-[#1A1A1A]">{item.degree}</h4>
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#FBF9F5] text-xs font-semibold text-[#B27B00] border border-[#E5E0D6] shrink-0">
+                <div key={idx} className="relative pl-5 border-l-2 border-[#FFB800]/30">
+                  <div className="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-[#FFB800]" />
+                  <div className="flex items-start justify-between gap-2 mb-0.5">
+                    <h4 className="font-semibold text-sm text-[#1A1A1A] leading-snug">{item.degree}</h4>
+                    <span className="px-2 py-0.5 rounded bg-[#FBF9F5] text-[11px] font-semibold text-[#B27B00] border border-[#E5E0D6] shrink-0">
                       {item.score}
                     </span>
                   </div>
-                  <p className="text-xs font-medium text-[#525252] mb-1">{item.institution} • {item.period}</p>
-                  {item.details && <p className="text-xs text-[#737373]">{item.details}</p>}
+                  <p className="text-xs text-[#737373]">{item.institution} · {item.period}</p>
+                  {item.details && <p className="text-xs text-[#A3A3A3] mt-1">{item.details}</p>}
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Internships & Work Experience */}
-          <div className="bg-white p-8 rounded-3xl border border-[#E5E0D6] shadow-xs">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-[#1A1A1A] text-[#FFB800] flex items-center justify-center font-bold">
-                <Briefcase className="w-5 h-5" />
+          {/* Experience */}
+          <div className="bg-white p-8 rounded-2xl border border-[#E5E0D6]">
+            <div className="flex items-center gap-3 mb-7">
+              <div className="w-9 h-9 rounded-lg bg-[#1A1A1A] flex items-center justify-center">
+                <Briefcase className="w-4.5 h-4.5 text-[#FFB800]" />
               </div>
-              <div>
-                <h3 className="font-display font-bold text-xl text-[#1A1A1A]">Internships & Leadership</h3>
-                <p className="text-xs text-[#737373]">Professional experience & community leadership</p>
-              </div>
+              <h3 className="font-display font-bold text-lg text-[#1A1A1A]">Experience & Leadership</h3>
             </div>
 
-            <div className="space-y-6 max-h-[460px] overflow-y-auto pr-2 scrollbar-thin">
+            <div className="space-y-7 max-h-[460px] overflow-y-auto pr-1">
               {EXPERIENCES.map((exp, idx) => (
-                <div key={idx} className="relative pl-6 border-l-2 border-[#1A1A1A]/30 pb-2">
-                  <div className="absolute -left-[9px] top-0.5 w-4 h-4 rounded-full bg-[#1A1A1A] border-2 border-white" />
-                  <div className="flex items-center justify-between gap-2 mb-1">
-                    <h4 className="font-bold text-sm sm:text-base text-[#1A1A1A]">{exp.role}</h4>
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#1A1A1A] text-white text-[10px] font-bold tracking-wide uppercase shrink-0">
+                <div key={idx} className="relative pl-5 border-l-2 border-[#E5E0D6]">
+                  <div className="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-[#1A1A1A]" />
+                  <div className="flex items-start justify-between gap-2 mb-0.5">
+                    <h4 className="font-semibold text-sm text-[#1A1A1A] leading-snug">{exp.role}</h4>
+                    <span className="px-2 py-0.5 rounded bg-[#1A1A1A] text-white text-[10px] font-bold uppercase tracking-wide shrink-0">
                       {exp.type}
                     </span>
                   </div>
-                  <p className="text-xs font-semibold text-[#B27B00] mb-2">{exp.organization} ({exp.period})</p>
+                  <p className="text-xs font-medium text-[#B27B00] mb-1.5">{exp.organization} · {exp.period}</p>
                   <ul className="space-y-1">
                     {exp.description.map((desc, dIdx) => (
                       <li key={dIdx} className="text-xs text-[#525252] leading-relaxed flex items-start gap-1.5">
-                        <span className="text-[#FFB800] text-sm leading-none mt-0.5">•</span>
+                        <span className="text-[#FFB800] mt-0.5 shrink-0">·</span>
                         <span>{desc}</span>
                       </li>
                     ))}
@@ -113,55 +134,33 @@ export const AboutMe: React.FC<AboutMeProps> = () => {
           </div>
         </div>
 
-        {/* Technical Philosophy Grid */}
-        <div className="mb-16">
-          <h3 className="font-display font-bold text-2xl text-[#1A1A1A] mb-8">
-            Technical Philosophy & Engineering Approach
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {DESIGN_PHILOSOPHY.map((item, idx) => (
-              <div 
-                key={idx}
-                className="bg-white p-7 rounded-3xl border border-[#E5E0D6] shadow-2xs flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#FBF9F5] border border-[#E5E0D6] flex items-center justify-center text-[#FFB800] mb-5">
-                    {idx === 0 && <Cpu className="w-5 h-5 text-[#B27B00]" />}
-                    {idx === 1 && <Compass className="w-5 h-5 text-[#B27B00]" />}
-                    {idx === 2 && <Users className="w-5 h-5 text-[#B27B00]" />}
-                  </div>
-                  <h4 className="font-display font-bold text-lg text-[#1A1A1A] mb-2.5">
-                    {item.title}
-                  </h4>
-                  <p className="text-sm text-[#525252] leading-relaxed">
-                    {item.description}
-                  </p>
+        {/* ── Skills Grid ─────────────────────────────────────── */}
+        <div className="bg-white p-8 rounded-2xl border border-[#E5E0D6]">
+          <div className="flex items-center gap-3 mb-7">
+            <div className="w-9 h-9 rounded-lg bg-[#FBF9F5] border border-[#E5E0D6] flex items-center justify-center">
+              <Code className="w-4.5 h-4.5 text-[#B27B00]" />
+            </div>
+            <div>
+              <h3 className="font-display font-bold text-lg text-[#1A1A1A]">Technical Skills</h3>
+              <p className="text-xs text-[#737373]">What I actually use day-to-day</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+            {SKILL_GROUPS.map((group, gIdx) => (
+              <div key={gIdx}>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-[#A3A3A3] mb-2.5">{group.label}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {group.skills.map((skill, sIdx) => (
+                    <span
+                      key={sIdx}
+                      className="px-2.5 py-1 rounded-md bg-[#F4F1EB] text-xs font-medium text-[#3A3A3A] border border-[#E8E4DA]"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Skills & Tools Pills */}
-        <div className="bg-white p-8 rounded-3xl border border-[#E5E0D6] shadow-xs flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-          <div className="max-w-md">
-            <h3 className="font-display font-bold text-xl text-[#1A1A1A] mb-2">
-              Technical Stack & Specialized Skills
-            </h3>
-            <p className="text-sm text-[#525252]">
-              Proficient across Python, Machine Learning, Data Analytics, Full-Stack Web Development, Databases, and AI Automation tools.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2 flex-1 lg:justify-end">
-            {SKILL_TAGS.map((skill, idx) => (
-              <span 
-                key={idx}
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FBF9F5] border border-[#E5E0D6] text-xs font-semibold text-[#1A1A1A]"
-              >
-                <CheckCircle className="w-3.5 h-3.5 text-[#FFB800]" />
-                <span>{skill}</span>
-              </span>
             ))}
           </div>
         </div>
