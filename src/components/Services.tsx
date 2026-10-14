@@ -63,16 +63,15 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[#FFB800] text-xs font-semibold uppercase tracking-wider mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[#FFB800] text-xs font-semibold uppercase tracking-wider mb-4">
               <span>Services & Expertise</span>
             </div>
             <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight leading-tight">
-              How I Bring <span className="text-[#FFB800]">Ideas to Life</span>
+              What I <span className="text-[#FFB800]">work on</span>
             </h2>
           </div>
           <p className="text-sm sm:text-base text-[#A3A3A3] max-w-md leading-relaxed">
-            A comprehensive technical toolkit spanning Machine Learning algorithms, Data Visualization dashboards, Full-Stack Web architectures, and AI Automation pipelines.
+            From machine learning pipelines to full-stack apps and BI dashboards — a breakdown of what I actually build and the tools I use.
           </p>
         </div>
 
@@ -151,9 +150,8 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                           </p>
 
                           {service.highlight && (
-                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#FFB800]/10 border border-[#FFB800]/30 text-[#FFB800] text-xs font-semibold mb-6">
-                              <Sparkles className="w-3.5 h-3.5" />
-                              <span>Key Focus: {service.highlight}</span>
+                            <div className="inline-flex items-center px-3 py-1.5 rounded-lg bg-[#FFB800]/10 border border-[#FFB800]/30 text-[#FFB800] text-xs font-semibold mb-6">
+                              <span>Focus: {service.highlight}</span>
                             </div>
                           )}
                         </div>
