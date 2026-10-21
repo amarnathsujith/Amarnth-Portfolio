@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 interface NavbarProps {
   onOpenContact: () => void;
@@ -94,11 +94,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             <button
               id="nav-lets-talk-btn"
               onClick={onOpenContact}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1A1A1A] text-white hover:bg-[#2A2A2A] text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 hover:shadow-md hover:ring-2 hover:ring-[#FFB800]/50 active:scale-95 group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#1A1A1A] text-white hover:bg-[#2A2A2A] text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 hover:shadow-md active:scale-95 group"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#FFB800] transition-transform group-hover:rotate-12" />
-              <span>Let's Talk</span>
-              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#FFB800]" />
+              <span>Let’s Talk</span>
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
 
             {/* Mobile Hamburger Toggle */}
@@ -138,10 +137,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                   setMobileMenuOpen(false);
                   onOpenContact();
                 }}
-                className="w-full py-3 rounded-full bg-[#FFB800] text-[#1A1A1A] font-bold text-sm tracking-wide flex items-center justify-center gap-2 shadow-xs"
+                className="w-full py-3 rounded-lg bg-[#FFB800] text-[#1A1A1A] font-bold text-sm tracking-wide flex items-center justify-center gap-2"
               >
-                <Sparkles className="w-4 h-4" />
-                <span>Let's Talk — Start a Project</span>
+                <span>Let’s Talk</span>
               </button>
             </div>
           </div>
