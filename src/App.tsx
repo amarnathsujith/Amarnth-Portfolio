@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { IntroAnimation } from './components/IntroAnimation';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Services } from './components/Services';
@@ -11,6 +12,11 @@ import { Footer } from './components/Footer';
 
 export default function App() {
   const [selectedService, setSelectedService] = useState<string>('Data Science & Machine Learning');
+  const [showIntro, setShowIntro] = useState(true);
+
+  const handleIntroComplete = useCallback(() => {
+    setShowIntro(false);
+  }, []);
 
   const scrollToContact = (serviceTitle?: string) => {
     if (serviceTitle) {
@@ -43,6 +49,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#FBF9F5] text-[#1A1A1A] flex flex-col selection:bg-[#FFB800]/30 selection:text-[#1A1A1A]">
+      {/* Cinematic intro animation — unmounts after sequence completes */}
+      {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
+
       {/* Sticky Top Navigation */}
       <Navbar onOpenContact={() => scrollToContact()} />
 
