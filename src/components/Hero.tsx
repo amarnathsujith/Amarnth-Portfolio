@@ -7,8 +7,7 @@ import {
   Instagram, 
   Mail,
   MapPin,
-  GraduationCap,
-  Code2
+  GraduationCap
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
@@ -30,10 +29,10 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 gap-12 lg:gap-8 items-center">
           
           {/* Left Column */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
+          <div className="flex flex-col items-start text-left">
             
             {/* Location line */}
             <div className="flex items-center gap-2 text-sm text-[#737373] mb-5">
@@ -146,62 +145,7 @@ export const Hero: React.FC<HeroProps> = ({ onHireMe, onExplorePortfolio }) => {
 
           </div>
 
-          {/* Right Column: Portrait */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm">
-              
-              {/* Portrait Card */}
-              <div 
-                id="hero-portrait-card"
-                className="relative bg-white p-3 rounded-2xl border border-[#E5E0D6] shadow-lg overflow-hidden"
-              >
-                <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-[#EAE5DC]">
-                  <img
-                    src="/assets/profile.jpg"
-                    alt="Amarnath Sujith — AI Data Analyst & Developer"
-                    className="w-full h-full object-cover object-top"
-                  />
-                  {/* Subtle bottom gradient for name overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <p className="text-xs font-semibold text-[#FFB800] uppercase tracking-wider">
-                      AI Data Analyst & Dev
-                    </p>
-                    <h3 className="text-lg font-bold font-display">Amarnath Sujith</h3>
-                  </div>
-                </div>
 
-                {/* CGPA badge — top left, minimal */}
-                <div 
-                  id="hero-badge-experience"
-                  className="absolute -top-3 -left-3 bg-[#1A1A1A] text-white px-3 py-2 rounded-xl shadow-lg border border-[#333] flex items-center gap-2.5"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-[#FFB800] text-[#1A1A1A] flex items-center justify-center font-display font-extrabold text-xs">
-                    7.4
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold leading-tight">CGPA</p>
-                    <p className="text-[10px] text-[#A3A3A3]">B.Tech CSE @ UCEK</p>
-                  </div>
-                </div>
-
-                {/* Projects badge — bottom right, minimal */}
-                <div 
-                  id="hero-badge-projects"
-                  className="absolute -bottom-3 -right-3 bg-white text-[#1A1A1A] px-3 py-2 rounded-xl shadow-lg border border-[#E5E0D6] flex items-center gap-2.5"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-[#1A1A1A] text-[#FFB800] flex items-center justify-center">
-                    <Code2 className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold font-display leading-tight">4+ Projects</p>
-                    <p className="text-[10px] text-[#737373]">ML · Web · AI</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
 
         </div>
       </div>
